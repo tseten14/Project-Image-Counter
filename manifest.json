@@ -1,0 +1,35 @@
+{
+	"name": "Image Counter",
+	"description": "Count Images",
+	"version": "1.0",
+	"manifest_version": 3,
+	"background": {
+		"service_worker": "background.js"
+	},
+	"permissions": ["storage", "activeTab", "tabs"],
+	"content_scripts": [
+		{
+			"matches": ["https://www.google.com/*&tbm=isch*"],
+			"js": ["content-script.js"]
+		}
+	],
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "/images/red_background_64.png"
+		}
+	},
+	"icons": {
+		"48": "/images/logo.png"
+	},
+	"commands": {
+		"_execute_action": {},
+		"duplicate-tab": {
+			"suggested_key": {
+				"default": "Ctrl+Q",
+				"mac": "Command+Q"
+			},
+			"description": "Used to toggle the extension state"
+		}
+	}
+}
